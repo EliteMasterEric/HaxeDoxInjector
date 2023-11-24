@@ -22,10 +22,10 @@ Apply the macro. For example, this build script will inject documentation into `
 --library haxe-dox-injector
 
 # Apply to a single class...
---macro addMetadata('@:build(dox.inject.Inject.applyToClass("docs/"))', 'test.MyClassTwo')
+--macro addMetadata('@:build(dox.inject.Inject.apply("docs/"))', 'test.MyClassTwo')
 
 # ...or to a whole package.
---macro dox.inject.Inject.applyToPackage("docs/", "test")
+--macro addGlobalMetadata('test', '@:build(dox.inject.Inject.apply("docs/"))', true, true, true)
 ```
 
 ```json

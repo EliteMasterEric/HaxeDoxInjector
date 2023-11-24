@@ -9,8 +9,17 @@ class ClassDocsReader {
 		this.baseDir = baseDir;
 	}
 
-	public function parseClassDocs(pack:Array<String>, name:String):ClassDocs {
-        var path:String = '${baseDir}/${pack.join('/')}/${name}.json';
+	public function parseClassDocs(pack:Array<String>, name:String):Null<ClassDocs> {
+        var path:String = haxe.io.Path.join([baseDir, pack.join('/'), '${name}.json']);
+
+		if (!sys.FileSystem.exists(path)) {
+			#if macro
+			haxe.macro.Context.warning('Cannot locate ClassDocs JSON: ${path}', haxe.macro.Context.currentPos());
+			return null;
+			#else
+			return null;
+			#end
+		}
 
         var contents:String = sys.io.File.getContent(path);
 
@@ -21,7 +30,7 @@ class ClassDocsReader {
 			return valueDynamic;
 		} catch (e) {
 			#if macro
-			haxe.macro.Context.error('Error parsing ClassDocs JSON: ${e}', haxe.macro.Context.currentPos());
+			haxe.macro.Context.error('Cannot parse ClassDocs JSON: ${e}', haxe.macro.Context.currentPos());
 			#end
 			return null;
 		}
