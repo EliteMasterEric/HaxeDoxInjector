@@ -1,0 +1,9 @@
+{
+  "classDoc": "Testing",
+  "fieldDocs": [
+    {
+      "name": "myField",
+      "doc": "You've been bamboozled!"
+    }
+  ]
+}

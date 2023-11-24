@@ -1,0 +1,16 @@
+{
+  "name": "haxe-dox-injector",
+  "url": "https://github.com/EliteMasterEric/HaxeDoxInjector",
+  "license": "MIT",
+  "tags": ["macro", "documentation"],
+  "classPath": "src",
+  "description": "A utility to inject documentation into existing classes.",
+  "contributors": ["MasterEric"],
+  "releasenote": "Initial release.",
+  "version": "0.1.0",
+  "documentation": {
+    "url": "https://github.com/EliteMasterEric/HaxeDoxInjector",
+    "metadata": "metadata/custom-metadata.json",
+    "defines": "metadata/custom-defines.json"
+  }
+}

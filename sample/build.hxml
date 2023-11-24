@@ -1,0 +1,7 @@
+--library haxe-dox-injector
+--cpp build/
+--class-path src/
+--main test.Main
+
+#--macro addMetadata('@:build(dox.inject.Inject.applyToClass("docs/"))', 'test.MyClassTwo')
+--macro dox.inject.Inject.applyToPackage('docs/', 'test')
